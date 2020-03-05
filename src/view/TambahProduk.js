@@ -130,6 +130,7 @@ class TambahProduk extends Component{
                             <Form.Control as="select" name="kategori" onChange={this.handleKategori} value={this.state.kategori}>
                                 <option value="Elektronik">Elektronik</option>
                                 <option value="Komputer">Olahraga</option>
+                                <option value="Aksesoris">Aksesoris</option>
                                 <option value="Komputer">Buku</option>
                             </Form.Control>
                         </Form.Group>
@@ -143,7 +144,7 @@ class TambahProduk extends Component{
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Harga</Form.Label>
+                            <Form.Label>Harga (Dalam Satuan ETH)</Form.Label>
                             <Form.Control type="number" placeholder="0" name="harga" onChange={this.handleHarga} value={this.state.harga}/>
                             
                         </Form.Group>
