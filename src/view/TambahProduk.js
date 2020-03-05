@@ -71,11 +71,16 @@ class TambahProduk extends Component{
             
             EcommerceStore.methods.addProduct(nama, kategori, harga, kondisi, deskripsi, ipfsHash[0].hash).send(
                 {
-                    value: web3.utils.toWei(harga, 'ether'),
                     from: accounts[0],
                     gasPrice: web3.utils.toWei("100000000", 'wei')
                 }, (err, transactionHash) => {
-                    console.log(transactionHash);                    
+                    if(!err){
+                        console.log(transactionHash);
+                        
+                    }else{
+                        console.log(err);
+                        
+                    }
                 })
 
         })
