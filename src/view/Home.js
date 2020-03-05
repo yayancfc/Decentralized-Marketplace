@@ -47,11 +47,11 @@ class Home extends Component{
     handleBuy = async (e, id, harga) => {
         e.preventDefault()
         const accounts = await web3.eth.getAccounts();
-        var a = web3.utils.toWei(harga, 'ether')
-        console.log('accounts', a);
+        //var a = web3.utils.fromWei(harga, 'ether')
+        //console.log('accounts', a);
         EcommerceStore.methods.buy(~~id).send(
             {
-                value: a,
+                value: harga,
                 from: accounts[0],
                 gasPrice: web3.utils.toWei("100000000", 'wei')
             }, (err, transactionHash) => {
@@ -83,7 +83,7 @@ class Home extends Component{
                         <Card.Body>
                         <Card.Title>{item[1]}</Card.Title>
                         <Card.Text>Deskripsi : {item[6]}</Card.Text>
-                        <Card.Text>Harga : {item[3]} Eth</Card.Text>
+                        <Card.Text>Harga : {web3.utils.fromWei(item[3])} Eth</Card.Text>
                         </Card.Body>
                         <Card.Footer>
                             <a href="#" onClick={(e) => this.handleBuy(e,item[0], item[3])}><i className="fa fa-shopping-cart fa-2x pull-right" aria-hidden="true"></i></a>

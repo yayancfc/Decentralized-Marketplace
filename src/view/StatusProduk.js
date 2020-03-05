@@ -85,14 +85,14 @@ class StatusProduk extends Component{
                 </thead>
                 <tbody>
                 
-                {this.state.produk.sort((item, next) => item[0] > next[0] ? 1 : -1 ).map((item, index) => {
+                {this.state.produk.sort((item, next) => item[0] > next[0] ? -1 : 1 ).map((item, index) => {
 
                     return item[8]=== this.state.accounts && 
                     
                     <tr key={item[0]}>
-                    <td>{item[0]}</td>
+                    <td>{index+1}</td>
                     <td>{item[1]}</td>
-                    <td>{item[3]} Eth</td>
+                    <td>{web3.utils.fromWei(item[3])} Eth</td>
                     <td>{item[5]}</td>
                     <td>{item[9]==0? 'Tersedia': item[9]==1? 'Menunggu Konfirmasi' : item[9]==2? 'Pesanan Sedang Dikirim Kurir': item[9]==3? 'Pesanan Sampai' : 'Pesanan Selesai'}</td>
                     <td>{item[9]==1? <Button onClick={(e) => {this.handleProsesPesanan(e, item[0])}}>Proses Pesanan</Button> : null}</td>

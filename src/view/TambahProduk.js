@@ -60,7 +60,7 @@ class TambahProduk extends Component{
 
         const nama = this.state.nama;
         const deskripsi = this.state.deskripsi;
-        const harga = this.state.harga;
+        const harga = web3.utils.toWei(this.state.harga, 'ether');
         const buffer = this.state.buffer;   
         const kategori = this.state.kategori; 
         const kondisi = this.state.kondisi; 
